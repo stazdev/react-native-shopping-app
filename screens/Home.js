@@ -48,6 +48,7 @@ const Home = ({ navigation }) => {
     return (
       <TouchableOpacity
         onPress={() => navigation.navigate("Products", { productID: data.id })}
+        activeOpacity={0.7}
         style={{
           width: "48%",
           marginVertical: 14,
@@ -186,24 +187,27 @@ const Home = ({ navigation }) => {
             padding: 16,
           }}
         >
-          <TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.7}>
             <Entypo
               name="shopping-bag"
               style={{
                 fontSize: 18,
-                color: COLOURS.backgroundMedium,
+                color: COLOURS.backgroundDark,
                 padding: 12,
                 borderRadius: 10,
                 backgroundColor: COLOURS.backgroundLight,
               }}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Cart")}
+            activeOpacity={0.7}
+          >
             <MaterialCommunityIcons
               name="cart"
               style={{
                 fontSize: 18,
-                color: COLOURS.backgroundMedium,
+                color: COLOURS.backgroundDark,
                 padding: 12,
                 borderRadius: 10,
                 borderWidth: 1,
