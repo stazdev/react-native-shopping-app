@@ -92,6 +92,7 @@ const MyCart = ({ navigation }) => {
       <TouchableOpacity
         key={data.key}
         onPress={() => navigation.navigate("Products", { productID: data.id })}
+        activeOpacity={0.7}
         style={{
           width: "100%",
           height: 100,
@@ -180,8 +181,9 @@ const MyCart = ({ navigation }) => {
             >
               <TouchableOpacity
                 onPress={() => {
-                  quantity >= 1 ? setQuantity(quantity - 1) : setQuantity(0);
+                  setQuantity(quantity - 1);
                 }}
+                activeOpacity={0.7}
                 style={{
                   borderRadius: 100,
                   marginRight: 20,
@@ -200,7 +202,10 @@ const MyCart = ({ navigation }) => {
                 />
               </TouchableOpacity>
               <Text>{quantity}</Text>
-              <View
+              <TouchableOpacity
+                onPress={() => {
+                  setQuantity(quantity + 1);
+                }}
                 style={{
                   borderRadius: 100,
                   marginLeft: 20,
@@ -217,9 +222,12 @@ const MyCart = ({ navigation }) => {
                     color: COLOURS.backgroundDark,
                   }}
                 />
-              </View>
+              </TouchableOpacity>
             </View>
-            <TouchableOpacity onPress={() => removeItemFromCart(data.id)}>
+            <TouchableOpacity
+              onPress={() => removeItemFromCart(data.id)}
+              activeOpacity={0.7}
+            >
               <MaterialCommunityIcons
                 name="delete-outline"
                 style={{
@@ -257,7 +265,10 @@ const MyCart = ({ navigation }) => {
             alignItems: "center",
           }}
         >
-          <TouchableOpacity onPress={() => navigation.goBack()}>
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            activeOpacity={0.7}
+          >
             <MaterialCommunityIcons
               name="chevron-left"
               style={{

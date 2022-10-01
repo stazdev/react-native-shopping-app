@@ -140,7 +140,10 @@ const Product = ({ route, navigation }) => {
               paddingLeft: 16,
             }}
           >
-            <TouchableOpacity onPress={() => navigation.goBack("Home")}>
+            <TouchableOpacity
+              onPress={() => navigation.goBack("Home")}
+              activeOpacity={0.7}
+            >
               <Entypo
                 name="chevron-left"
                 style={{
@@ -357,6 +360,7 @@ const Product = ({ route, navigation }) => {
         >
           <TouchableOpacity
             onPress={() => (product.isAvailable ? addToCart(product.id) : null)}
+            activeOpacity={0.7}
             style={{
               width: "86%",
               height: "90%",
